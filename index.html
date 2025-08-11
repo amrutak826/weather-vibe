@@ -1,48 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>WeatherVibe</title>
-<link rel="stylesheet" href="style.css" />
-<!-- Optional: Favorite icons -->
-<link rel="icon" type="image/svg+xml" href="https://openweathermap.org/img/wn/01d@2x.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeatherVibe – Interactive 3D Weather</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-<header>
-  <h1>WeatherVibe</h1>
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Enter city..." />
-    <button id="search-btn">Search</button>
-    <button id="locate-btn" title="Use Current Location">📍</button>
-  </div>
-</header>
+<body class="clear-day">
+  <div class="container">
+    <!-- Floating Title Plate -->
+    <header class="header" role="banner">
+      <div class="title-plate" aria-hidden="true"></div>
+      <h1 class="app-title" data-depth="30">
+        <i class="fas fa-cloud-sun"></i>
+        WeatherVibe
+      </h1>
+      <p class="app-subtitle" data-depth="20">Your Personal Weather Station</p>
+    </header>
 
-<main>
-  <div class="weather-card" id="weather-card">
-    <h2 id="location-name">Loading...</h2>
-    <div class="weather-main">
-      <img id="weather-icon" src="" alt="" />
-      <div>
-        <p id="temp"></p>
-        <p id="description"></p>
+    <!-- Search Controls Section -->
+    <section class="search-section" aria-label="Search Weather">
+      <div class="search-container" data-depth="40">
+        <input type="text" id="cityInput" class="search-input" placeholder="Enter city name..." aria-label="City name">
+        <button id="searchBtn" class="search-btn" aria-label="Search city weather">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
-    </div>
-    <div class="additional-info">
-      <p>Humidity: <span id="humidity"></span>%</p>
-      <p>Wind: <span id="wind"></span> m/s</p>
-      <p>Pressure: <span id="pressure"></span> hPa</p>
-      <p>Visibility: <span id="visibility"></span> km</p>
-      <p>Feels Like: <span id="feels-like"></span>&deg;C</p>
-    </div>
-    <div class="forecast" id="forecast"></div>
+      <button id="locationBtn" class="location-btn" aria-label="Use current location">
+        <i class="fas fa-location-arrow"></i>
+        My Location
+      </button>
+    </section>
+
+    <!-- Weather Display Section -->
+    <main class="weather-container" id="weatherContainer" aria-live="polite">
+      <!-- Current Weather Card -->
+      <article class="weather-card main-card" role="region" aria-label="Current Weather">
+        <div class="current-weather">
+          <div class="weather-icon" data-depth="60">
+            <img id="weatherIcon" src="" alt="Weather icon">
+          </div>
+          <div class="weather-info">
+            <div class="temperature" id="temperature">--°C</div>
+            <div class="city-name" id="cityName">City, Country</div>
+            <div class="weather-description" id="weatherDescription">Description</div>
+            <div class="date-time" id="dateTime">Loading time...</div>
+          </div>
+        </div>
+        <div class="weather-details" aria-label="Weather Details">
+          <div class="detail-item">
+            <i class="fas fa-eye"></i>
+            <span class="detail-label">Visibility</span>
+            <span class="detail-value" id="visibility">-- km</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-tint"></i>
+            <span class="detail-label">Humidity</span>
+            <span class="detail-value" id="humidity">--%</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-wind"></i>
+            <span class="detail-label">Wind</span>
+            <span class="detail-value" id="windSpeed">-- m/s</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-thermometer-half"></i>
+            <span class="detail-label">Feels Like</span>
+            <span class="detail-value" id="feelsLike">--°C</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-compress-alt"></i>
+            <span class="detail-label">Pressure</span>
+            <span class="detail-value" id="pressure">-- hPa</span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-sun"></i>
+            <span class="detail-label">UV Index</span>
+            <span class="detail-value" id="uvIndex">--</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5-Day Forecast Grid -->
+      <section class="forecast-container" aria-label="5-Day Forecast">
+        <h2 class="forecast-title" data-depth="25">5-Day Forecast</h2>
+        <div class="forecast-grid" id="forecastGrid">
+          <!-- JS will inject forecast cards here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Error & Loading Overlays -->
+    <aside class="error-message" id="errorMessage" role="alert" style="display:none">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>City not found. Try again.</span>
+    </aside>
+    <aside class="loading" id="loading" role="status" style="display:none">
+      <div class="spinner"></div>
+      <p>Loading weather data…</p>
+    </aside>
   </div>
-</main>
 
-<footer>
-  <p>&copy; 2025 WeatherVibe</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
