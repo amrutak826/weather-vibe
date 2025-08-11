@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WeatherVibe</title>
+<link rel="stylesheet" href="style.css" />
+<!-- Optional: Favorite icons -->
+<link rel="icon" type="image/svg+xml" href="https://openweathermap.org/img/wn/01d@2x.png" />
+</head>
+<body>
+<header>
+  <h1>WeatherVibe</h1>
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Enter city..." />
+    <button id="search-btn">Search</button>
+    <button id="locate-btn" title="Use Current Location">📍</button>
+  </div>
+</header>
+
+<main>
+  <div class="weather-card" id="weather-card">
+    <h2 id="location-name">Loading...</h2>
+    <div class="weather-main">
+      <img id="weather-icon" src="" alt="" />
+      <div>
+        <p id="temp"></p>
+        <p id="description"></p>
+      </div>
+    </div>
+    <div class="additional-info">
+      <p>Humidity: <span id="humidity"></span>%</p>
+      <p>Wind: <span id="wind"></span> m/s</p>
+      <p>Pressure: <span id="pressure"></span> hPa</p>
+      <p>Visibility: <span id="visibility"></span> km</p>
+      <p>Feels Like: <span id="feels-like"></span>&deg;C</p>
+    </div>
+    <div class="forecast" id="forecast"></div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 WeatherVibe</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

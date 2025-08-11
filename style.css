@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+  }
+  
+  header {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .search-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  #search-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: #fff;
+    color: #2193b0;
+    font-size: 1em;
+    transition: background 0.3s, color 0.3s;
+  }
+  button:hover {
+    background: #f0f0f0;
+    color: #333;
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .weather-card {
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    transition: background 0.3s;
+  }
+  
+  #location-name {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  #weather-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  #temp {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  #description {
+    text-transform: capitalize;
+    font-size: 1.2em;
+  }
+  
+  .additional-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1em;
+  }
+  
+  #forecast {
+    margin-top: 20px;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+  }
+  
+  .forecast-item {
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.2);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 80px;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  
+  footer {
+    padding: 10px;
+    background: rgba(255,255,255,0.2);
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+  }
+  
